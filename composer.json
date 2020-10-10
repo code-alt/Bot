@@ -1,0 +1,15 @@
+{
+    "name": "riversiderocks/dbbot",
+    "description": "Bot to help detect dangerous discord accounts.",
+    "type": "project",
+    "license": "apache-2.0",
+    "authors": [
+        {
+            "name": "Riverside Rocks",
+            "email": "trent@riverside.rocks"
+        }
+    ],
+    "require": {
+        "team-reflex/discord-php": "^5.0"
+    }
+}
