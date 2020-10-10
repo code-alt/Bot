@@ -2,8 +2,11 @@
 
 include __DIR__.'/vendor/autoload.php';
 
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+$dotenv->load();
+
 $discord = new \Discord\Discord([
-    'token' => '',
+    'token' => $_ENV["TOKEN"],
 ]);
 
 $discord->on('ready', function ($discord) {
@@ -11,7 +14,12 @@ $discord->on('ready', function ($discord) {
 
     // Listen for events here
     $discord->on('message', function ($message) {
-        $terms = array(                                                                                                         )                                                                                                                                                                                                                                           });
+        $list = array(
+            "join my server"
+        );
+        if (strpos($message["content"], $list) !== FALSE) {
+            echo "LOG: User is flagged.";
+        }
 });
 
 $discord->run();
