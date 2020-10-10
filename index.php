@@ -18,9 +18,10 @@ $discord->on('ready', function ($discord) {
             "join my server"
         );
         $content = $message["content"];
-
-        if (strpos($content, $list) == true) {
-            echo "LOG: User is flagged.";
+        for ($x = 0; $x <= 10; $x++) {
+            if (strpos($content, $list) == true) {
+                echo "LOG: User is flagged.";
+            }
         }
     });
 });
