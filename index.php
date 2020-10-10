@@ -17,12 +17,12 @@ $discord->on('ready', function ($discord) {
         $list = array(
             "join my server"
         );
-        echo $message["content"];
-        /*
-        if (strpos(, $list) !== FALSE) {
+        $content = $message["content"];
+        $tocheck = implode(" ", $tocheck);
+
+        if (strpos($tocheck, $list) !== false) {
             echo "LOG: User is flagged.";
         }
-        */
     });
 });
 
