@@ -20,6 +20,9 @@ $discord->on('ready', function ($discord) {
         if (strpos($message["content"], $list) !== FALSE) {
             echo "LOG: User is flagged.";
         }
+    });
 });
 
 $discord->run();
+
+?>
