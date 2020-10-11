@@ -11,11 +11,24 @@ client.on('message', msg => {
   var content = "!lookup";
 
   if(msg.content.includes(content) !== false){
-      console.log("It works!")
       var id = msg.content.substr(8);
+      console.log(id+" was requested.")
       fetch('https://discord.riverside.rocks/check.json.php?id='+id)
     .then(res => res.json())
-    .then(json => console.log(json));
+    .then(json => {
+
+    
+        if(json.reports !== ""){
+            if(typeof json.reports == 'undefined'){
+                msg.reply("Invalid user.")
+            }else{
+                msg.reply("User requested has "+json.reports+" reports and has an abuse score of "+json.score)
+            }
+        }else{
+            msg.reply("Invalid user.")
+        }
+    })
+
   }
 });
 
