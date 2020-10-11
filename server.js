@@ -22,7 +22,7 @@ client.on('message', msg => {
             if(typeof json.reports == 'undefined'){
                 msg.reply("Invalid user.")
             }else{
-                msg.reply("User requested has "+json.reports+" reports and has an abuse score of "+json.score)
+                msg.reply("User requested has **"+json.reports+"** reports and has an abuse score of **"+json.score+"** If you feel that this user is abusive, please report them at https://discord.riverside.rocks/report?id="+id)
             }
         }else{
             msg.reply("Invalid user.")
