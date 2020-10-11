@@ -19,7 +19,14 @@ $discord->on('ready', function ($discord) {
         $discord = json_decode($message, true);
         $content = $discord["content"];
         if(strpos($command, $content) !== false) {
+            $id = trim($content, "!lookup ");
             echo "Ready to conduct lookup.";
+            $api = json_decode(file_get_contents("https://discord.riverside.rocks/check.json.php?id=${id}"));
+            if($api["reports"] !== ""){
+                echo $api["reports"];
+            }else{
+                echo "Bad Request";
+            }
         }
     });
 });
