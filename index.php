@@ -15,6 +15,7 @@ $discord->on('ready', function ($discord) {
     // Listen for events here
     $discord->on('message', function ($message) {
         $command = "!lookup";
+        $discord1 = json_encode($message, true);
         $discord = json_decode($message, true);
         $content = $discord["content"];
         if(strpos($command, $content) !== false) {
