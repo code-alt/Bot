@@ -14,14 +14,10 @@ $discord->on('ready', function ($discord) {
 
     // Listen for events here
     $discord->on('message', function ($message) {
-        $list = array(
-            "join my server"
-        );
+        $command = "!lookup";
         $content = $message["content"];
-        foreach($list as $lists){
-            if (strpos($content, $list) == true) {
-                echo "LOG: User is flagged.";
-            }
+        if(strpos($command, $content) !== false) {
+            echo "Ready to conduct lookup.";
         }
     });
 });
