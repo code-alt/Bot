@@ -2,6 +2,9 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 require('dotenv').config()
 const fetch = require('node-fetch');
+let jsoning = require('jsoning');
+let database = new jsoning("sql.json");
+
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
@@ -29,6 +32,11 @@ client.on('message', msg => {
         }
     })
 
+  }
+  var content = "!report";
+
+  if(msg.content.includes(content) !== false){
+    var id = msg.content.substr(8);
   }
 });
 
