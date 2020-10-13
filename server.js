@@ -37,6 +37,22 @@ client.on('message', msg => {
 
   if(msg.content.includes(content) !== false){
     var id = msg.content.substr(8);
+    (async() => {
+      if(db.has(message.guild.id)){
+        if(!message.guild.member(message.author).hasPermission('MANAGE_MESSAGES')){
+          msg.reply("We are sorry, but you do not have the permisions to do this.")
+        }else{
+          // POST a request to the server with the API key that the server has set
+        }
+      }else{
+        if(id == ""){
+          msg.reply("This server does not have an API key assciated with it. In a secure channel, please use with command with your API key. (ex. `!report abcdefg`) To get your accounts API Key, sign in at https://discord.riverside.rocks/login and view it on the dashboard.");
+        }else{
+          await db.push(message.guild.id, id);
+          msg.reply("Your API key has been saved.");
+        }
+      }
+    })
   }
 });
 
